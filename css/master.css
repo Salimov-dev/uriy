@@ -1,0 +1,298 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    font-family: 'Montserrat', sans-serif;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    }
+
+img {
+    max-width: 100%;
+}
+
+.container {
+    /* max-width - максимальная ширина, заранее готовимся к адаптации к мобильной версии */
+    max-width: 1140px;
+    /* выравниваем контейнер по середине (слева и справа) */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.none {
+    /* !important - главное правило, его нельзя перезаписывать */
+    display: none !important;
+}
+
+/* ------- HEADER ------- */
+
+.header {
+
+    display: flex;
+    /* задаем направление колонки, выстраиваем flex элементы в колонку, основная ось Y */
+    flex-direction: column; 
+    /* justify - по основной оси */
+    justify-content: center;
+    /* align - по поперечной оси */
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+
+    background-color: #15549D;
+    background-image: url(../images/header/header-bg.png);    background-size: cover;
+    /* cover - полностью закрывает фон */
+    background-position: center;
+    /* определяем модель flex для блока header */
+
+    position: relative;
+}
+
+.header-title {
+    margin-bottom: 25px;
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 130%;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.header-subtitle {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+    text-align: center;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+.header-arrow {
+    width: 48px;
+    height: 48px;
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+/* ------- PORTFOLIO ------- */
+
+.portfolio {
+    padding-top: 80px;
+    padding-bottom: 115px;
+}
+
+.portfolio-header {
+    margin: 0;
+    margin-bottom: 70px;
+    font-weight: 700;
+    font-size: 46px;
+    line-height: 130%;
+    text-align: center;
+    color: #000000;
+}
+
+.portfolio-cards-wrapper {
+    /* применяем flex модели, выстраиваем в ряд*/
+    display: flex;
+    /* для того, чтобы переносились применяем свойство wrap */
+    flex-wrap: wrap;
+    /* избавляемся от отступа, justify-content - выравнивает элементы по краям контейнера, свободное пространство распределяет между ними */
+    justify-content: space-between;
+}
+
+.card {
+    margin-bottom: 30px;
+    background-color: white;
+    max-width: 540px;
+    box-shadow: 0px 10px 40px rgba(126, 155, 189, 0.35);
+    transition: transform 0.3s ease-in;
+}
+
+.card:hover {
+    transform: translateY(-15px);
+    transition: transform 0.3s ease-in;
+}
+
+.card-link {
+    text-decoration: none;
+    display: block;
+    color: black;
+    padding: 20px;
+    transition: color 0.3s ease-in;
+}
+
+.card-link:hover {
+    color: rgb(39, 91, 236);
+}
+
+/* убираем дополнительно образованный отступ от последней карточки до низа страницы (footer), для этого создаем псевдоселектор и выбираем последнюю карточку, где
+last-child - это последний элемент 
+а тут nth-last-child(2) - выбирает 2ой элемент с конца */
+.card:last-child, .card:nth-last-child(2) {
+    margin-bottom: 0;
+}
+
+.card-image {
+    margin-bottom: 20px;
+}
+
+.card-title {
+    margin: 0;
+    margin-bottom: 13px;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 130%;
+}
+
+.card p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 130%;
+}
+
+
+
+/* ------- FOOTER ------- */
+
+.footer {
+    padding-top: 45px;
+    padding-bottom: 108px;
+    background-color: #1E4776;
+    color: white;
+}
+
+.footer-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.footer-col {
+    max-width: 350px;
+    flex-grow: 1;
+}
+
+.footer-copyright-name {
+    color: #7E9EC9;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 1.3;
+}
+
+.footer-copyright-name p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.footer-icons p {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 130%;
+    margin-bottom: 15px;
+}
+
+.footer-icons-row {
+    display: flex;
+    align-items: center;
+}
+
+/* > * выбираем все блоки дальше 1 уровня вложенности, таким образом мы обращаемся только к иконкам с сылками на соцсети */
+.footer-icons-row > * + * {
+    margin-left: 30px;
+}
+
+.footer-contacts {
+}
+
+.footer-contacts p {
+    margin: 15px 0;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.3;
+    color: #7E9EC9;
+}
+
+.footer-button {
+    height: 50px;
+    display: inline-block;
+    border: 3px solid #FFFFFF;
+    border-radius: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
+
+    color: white;
+    line-height: 44px;
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s ease-in;
+}
+
+.footer-button:hover {
+    background-color: white;
+    color: #1E4776;
+}
+
+/* ------- PROJECT ------- */
+
+.project {
+    padding-top: 80px;
+    padding-bottom: 120px;
+    text-align: center;
+    }
+
+.project-header {
+    font-weight: 700;
+    font-size: 46px;
+    line-height: 1.3%;
+    margin-bottom: 40px;
+}
+
+.project-image {
+    margin-bottom: 70px;
+}
+
+.project-discription {
+    margin: 0 auto 60px;
+    max-width: 730px;
+}
+
+.project-discription p {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    margin-top: 0;
+}
+
+.project-button-back {
+    height: 60px;
+    display: inline-block;
+    border: 3px solid #275BEC;
+    border-radius: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
+
+    color: #275BEC;
+    line-height: 54px;
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s ease-in;
+}
+
+.project-button-back:hover {
+    background-color: #275BEC;
+    color: white;
+}
